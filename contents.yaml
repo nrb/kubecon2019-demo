@@ -1,0 +1,31 @@
+apiVersion: snapshot.storage.k8s.io/v1alpha1
+kind: VolumeSnapshotContent
+metadata:
+  name: snapcontent-c393ad06-000c-11ea-bb60-02c4fcac63ba
+spec:
+  csiVolumeSnapshotSource:
+    driver: ebs.csi.aws.com
+    snapshotHandle: snap-08623b5887ecc94a3
+  deletionPolicy: Retain
+  snapshotClassName: csi-aws-vsc
+  volumeSnapshotRef:
+    apiVersion: snapshot.storage.k8s.io/v1alpha1
+    kind: VolumeSnapshot
+    name: mysql-snapshot
+    namespace: wordpress
+---
+apiVersion: snapshot.storage.k8s.io/v1alpha1
+kind: VolumeSnapshotContent
+metadata:
+  name: snapcontent-c3b73263-000c-11ea-bb60-02c4fcac63ba
+spec:
+  csiVolumeSnapshotSource:
+    driver: ebs.csi.aws.com
+    snapshotHandle: snap-0caf377a3fbdd38a7
+  deletionPolicy: Retain
+  snapshotClassName: csi-aws-vsc
+  volumeSnapshotRef:
+    apiVersion: snapshot.storage.k8s.io/v1alpha1
+    kind: VolumeSnapshot
+    name: wp-snapshot
+    namespace: wordpress

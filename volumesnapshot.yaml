@@ -1,0 +1,21 @@
+apiVersion: snapshot.storage.k8s.io/v1alpha1
+kind: VolumeSnapshot
+metadata:
+  name: mysql-snapshot
+  namespace: wordpress
+spec:
+  snapshotClassName: csi-aws-vsc
+  source:
+    name: mysql-pv-claim
+    kind: PersistentVolumeClaim
+---
+apiVersion: snapshot.storage.k8s.io/v1alpha1
+kind: VolumeSnapshot
+metadata:
+  name: wp-snapshot
+  namespace: wordpress
+spec:
+  snapshotClassName: csi-aws-vsc
+  source:
+    name: wp-pv-claim
+    kind: PersistentVolumeClaim
