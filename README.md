@@ -1,7 +1,7 @@
 # Initial Setup
 
 ```bash
-kubectl apply -k ./
+kubectl apply -k ./setup
 open "http://"$(kubectl get service/wordpress -n wordpress -o jsonpath="{.status.loadBalancer.ingress[0].hostname}")
 ```
 Make the data
