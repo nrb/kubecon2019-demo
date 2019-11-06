@@ -31,7 +31,5 @@ Already done in contents.yaml, but that would require deleting the live objects.
 # Recreate Snapshots & PVCs
 
 ```bash
-kubectl apply -f restore.yaml
-kubectl apply -f pvcs.yaml     # in order to use the `datasource` field
-kubectl apply -k ./   # fails on the PVCs cause they already exist and are immutable.
+kubectl apply -k ./restore
 ```
