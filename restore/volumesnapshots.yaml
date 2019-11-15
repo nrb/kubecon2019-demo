@@ -10,7 +10,7 @@ metadata:
   namespace: wordpress
 spec:
   snapshotClassName: csi-aws-vsc
-  snapshotContentName: snapcontent-c393ad06-000c-11ea-bb60-02c4fcac63ba
+  snapshotContentName: 
 ---
 apiVersion: snapshot.storage.k8s.io/v1alpha1
 kind: VolumeSnapshot
@@ -19,4 +19,4 @@ metadata:
   namespace: wordpress
 spec:
   snapshotClassName: csi-aws-vsc
-  snapshotContentName: snapcontent-c3b73263-000c-11ea-bb60-02c4fcac63ba
+  snapshotContentName: 
