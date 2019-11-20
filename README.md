@@ -15,50 +15,6 @@ open LB_ADDRESS
 Make the data in your browser
 
 
-# Create the snapshots
+# The demo
 
-```
-kubectl apply -f make-volumesnapshots.yaml
-watch -d -n 5 kubectl get volumesnapshot -n wordpress -o jsonpath="{.items[*].status.readyToUse}"
-```
-
-
-
-# Prep for restore
-
-Get the VolumeSnapshotContents associated with each VolumeSnapshot:
-
-```bash
-kubectl get volumesnapshotcontents -o jsonpath='{range .items[*]}{.spec.volumeSnapshotRef.name}{"\t"}{.metadata.name}{"\n"}{end}'
-```
-
-# Edit restore/volumesnapshots.yaml to add in the relevant VolumeSnapshotContent names
-
-```
-$EDITOR restore/volumesnapshots.yaml
-```
-
-# Destroy the namespace
-
-```bash
-kubectl delete namespace/wordpress
-```
-
-
-# Edit the VolumeSnapshotContents to omit the PVRef, remove UID from VolumeSnapshotRef
-
-```
-kubectl edit volumesnapshotcontents
-```
-
-# Recreate Snapshots & PVCs
-
-```bash
-kubectl apply -k ./restore
-```
-
-# Open the site
-
-```bash
-open $LB_ADDRESS
-```
+The demo is a script in `demo.sh`, which prints and executes the commands so that it could be recorded more easily.
